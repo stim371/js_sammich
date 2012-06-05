@@ -44,7 +44,7 @@ class SandwichOrdersController < ApplicationController
 
     respond_to do |format|
       if @sandwich_order.save
-        format.html { redirect_to @sandwich_order, notice: 'Sandwich order was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Sandwich order was successfully created.' }
         format.json { render json: @sandwich_order, status: :created, location: @sandwich_order }
       else
         format.html { render action: "new" }
