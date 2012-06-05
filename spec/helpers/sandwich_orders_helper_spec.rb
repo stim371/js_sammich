@@ -11,5 +11,9 @@ require 'spec_helper'
 #   end
 # end
 describe SandwichOrdersHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "when building the copyright notice" do
+    it "should show the current year" do
+      this_year.should eq Time.new.year
+    end
+  end
 end
