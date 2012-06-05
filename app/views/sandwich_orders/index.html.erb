@@ -2,13 +2,21 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+<%- if flash -%>
+	<%- flash.each do |key, msg| -%>
+	  <div id="<%= key %>" class="alert <%= alert_class(key) %>">
+	    <p style="float:right;"><%= link_to_function 'X', "Effect.Fade('#{key}')" %></p>
+	    <p><%= msg %></p>
+	    <div class="clear"></div>
+	  </div>
+	<%- end -%>
+<%- end -%>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:ordering_person) %></th>
       <th><%= model_class.human_attribute_name(:sandwich_type) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -18,7 +26,6 @@
         <td><%= link_to sandwich_order.id, sandwich_order_path(sandwich_order) %></td>
         <td><%= sandwich_order.ordering_person %></td>
         <td><%= sandwich_order.sandwich_type %></td>
-        <td><%=l sandwich_order.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_sandwich_order_path(sandwich_order), :class => 'btn btn-mini' %>
