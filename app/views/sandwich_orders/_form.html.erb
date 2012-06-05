@@ -8,7 +8,13 @@
   <div class="control-group">
     <%= f.label :sandwich_type, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :sandwich_type, :class => 'text_field' %>
+      <%= f.select :sandwich_type, SandwichOrder::SANDWICH_TYPES %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sandwich_maker, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sandwich_maker, :class => 'text_field' %> Enter an email, twitter handle or phone number to send your order
     </div>
   </div>
 
