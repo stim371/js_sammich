@@ -24,7 +24,11 @@ describe SandwichOrdersController do
   # SandwichOrder. As you add validations to SandwichOrder, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :sandwich_type => "Meat",
+      :sandwich_maker => "Chef",
+      :ordering_person => "Joel"
+    }
   end
   
   # This should return the minimal set of values that should be in the session
