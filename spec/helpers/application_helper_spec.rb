@@ -10,6 +10,10 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe SandwichOrdersHelper do
-  
+describe ApplicationHelper do
+  context "when building the copyright notice" do
+    it "should show the current year" do
+      this_year.should eq Time.new.year
+    end
+  end
 end
