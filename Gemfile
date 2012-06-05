@@ -32,8 +32,8 @@ end
 group :test do
 	gem 'cucumber-rails', '1.0.6'
 	gem 'capybara'
-	# gem 'database_cleaner'
-	# gem 'factory_girl'
+	gem 'database_cleaner'
+	gem 'factory_girl'
 	gem 'launchy'
 end
 
