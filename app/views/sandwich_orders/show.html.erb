@@ -1,15 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @sandwich_order.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Ordering person:</b>
-  <%= @sandwich_order.ordering_person %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:ordering_person) %>:</strong></dt>
+  <dd><%= @sandwich_order.ordering_person %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sandwich_type) %>:</strong></dt>
+  <dd><%= @sandwich_order.sandwich_type %></dd>
+</dl>
 
-<p>
-  <b>Sandwich type:</b>
-  <%= @sandwich_order.sandwich_type %>
-</p>
-
-
-<%= link_to 'Edit', edit_sandwich_order_path(@sandwich_order) %> |
-<%= link_to 'Back', sandwich_orders_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              sandwich_orders_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_sandwich_order_path(@sandwich_order), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              sandwich_order_path(@sandwich_order),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
