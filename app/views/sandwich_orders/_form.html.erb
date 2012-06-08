@@ -11,15 +11,21 @@
       <%= f.select :sandwich_type, SandwichOrder::SANDWICH_TYPES %>
     </div>
   </div>
+  <div class="control-group" id="sandwich_url" style="display:none">
+    <%= f.label :sandwich_url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sandwich_url, :class => 'text_field' %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :sandwich_maker, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :sandwich_maker, :class => 'text_field' %> Enter an email, twitter handle or phone number to send your order
+      <%= f.text_field :sandwich_maker, :class => 'text_field' %> <%- if f.error_messages.empty? -%>Enter an email, twitter handle or phone number to send your order<%- end -%>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit "Place Order", :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 sandwich_orders_path, :class => 'btn' %>
   </div>
