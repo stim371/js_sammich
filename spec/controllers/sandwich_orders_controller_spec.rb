@@ -83,9 +83,9 @@ describe SandwichOrdersController do
         assigns(:sandwich_order).should be_persisted
       end
 
-      it "redirects to the created sandwich_order" do
+      it "redirects to the homepage" do
         post :create, {:sandwich_order => valid_attributes}, valid_session
-        response.should redirect_to(SandwichOrder.last)
+        response.should redirect_to(root_url)
       end
     end
 

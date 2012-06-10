@@ -8,27 +8,27 @@ Feature: Creating Sandwich orders
 		When I follow "New Order"
 	
 	Scenario: Creating an order
-		And I fill in "Ordering person" with "Joel"
-		And I select "Meat" from "Sandwich type"
-		And I fill in "Sandwich maker" with "Randy Savage"
+		And I fill in "Ordering Person" with "Joel"
+		And I select "Meat" from "Sandwich Type"
+		And I fill in "Sandwich Maker" with "Randy Savage"
 		And I press "Place Order"
 		Then I should see "Sandwich order was successfully created."
 		
 	Scenario: Creating an order without a Sandwich maker
-		And I fill in "Ordering person" with "Joel"
-		And I select "Meat" from "Sandwich type"
+		And I fill in "Ordering Person" with "Joel"
+		And I select "Meat" from "Sandwich Type"
 		And I press "Place Order"
 		Then I should see "Sandwich maker can't be blank"
 		
 	Scenario: Creating an order without a Sandwich type
-		And I fill in "Ordering person" with "Joel"
-		And I select "" from "Sandwich type"
-		And I fill in "Sandwich maker" with "Chef"
+		And I fill in "Ordering Person" with "Joel"
+		And I select "" from "Sandwich Type"
+		And I fill in "Sandwich Maker" with "Chef"
 		And I press "Place Order"
 		Then I should see "Sandwich maker can't be blank"
 			
 	Scenario: Creating an order without an Ordering person
-		And I fill in "Sandwich maker" with "Joel"
-		And I select "Meat" from "Sandwich type"
+		And I fill in "Sandwich Maker" with "Joel"
+		And I select "Meat" from "Sandwich Type"
 		And I press "Place Order"
 		Then I should see "Sandwich maker can't be blank"
