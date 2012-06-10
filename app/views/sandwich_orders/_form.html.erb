@@ -1,24 +1,24 @@
 <%= form_for @sandwich_order, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :ordering_person, :class => 'control-label' %>
+    <%= f.label :ordering_person, :ordering_person.to_s.titleize, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ordering_person, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :sandwich_type, :class => 'control-label' %>
+    <%= f.label :sandwich_type, :sandwich_type.to_s.titleize, :class => 'control-label' %>
     <div class="controls">
       <%= f.select :sandwich_type, SandwichOrder::SANDWICH_TYPES %>
     </div>
   </div>
-  <div class="control-group" id="sandwich_url" style="display:none">
-    <%= f.label :sandwich_url, :class => 'control-label' %>
+  <div class="control-group" id="sandwich_url">
+    <%= f.label :other_sandwich, "Sandwich URL", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :sandwich_url, :class => 'text_field' %>
+      <%= f.text_field :other_sandwich, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :sandwich_maker, :class => 'control-label' %>
+    <%= f.label :sandwich_maker, :sandwich_maker.to_s.titleize, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :sandwich_maker, :class => 'text_field' %> <%- if f.error_messages.empty? -%>Enter an email, twitter handle or phone number to send your order<%- end -%>
     </div>

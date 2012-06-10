@@ -1,0 +1,16 @@
+//Thanks to this gist for showing how to correct the form
+//error formatting errors, and add inline error reports
+//https://gist.github.com/1464315
+
+form {
+	.clearfix:before, .clearfix:after {
+  	display: inline;
+	}
+	.help-inline {
+		color: red;
+		display: inline;
+	}
+	#sandwich_url {
+		display:none;
+	}
+}
