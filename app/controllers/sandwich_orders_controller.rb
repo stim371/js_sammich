@@ -44,6 +44,7 @@ class SandwichOrdersController < ApplicationController
 
     respond_to do |format|
       if @sandwich_order.save
+        SandwichOrderMailer.order_email(@sandwich_order).deliver
         format.html { redirect_to root_url, notice: 'Sandwich order was successfully created.' }
         format.json { render json: @sandwich_order, status: :created, location: @sandwich_order }
       else

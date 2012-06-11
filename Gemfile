@@ -12,6 +12,8 @@ gem 'nokogiri'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'mail', '~> 2.3'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

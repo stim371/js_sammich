@@ -194,6 +194,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   launchy
+  mail (~> 2.3)
   nokogiri
   rails (= 3.2.3)
   rspec-rails (~> 2.5)

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Crowdsource Your Sammich!</h1>
+		<p>
+			Hi <%= @sandwich_order.sandwich_maker %>,
+		</p>
+    <p>
+      You have been selected from a deep field of candidates to make a sandwich for <%= @sandwich_order.ordering_person %>.<br/>
+    </p>
+    <p>
+      <%= @sandiwch_order.ordering_person.split[0].capitalize %> would like:
+    </p>
+		<p>
+			<%- if @sandwich_order.sandwich_type == "Other" -%>
+				The fancy sandwich found here: <%= @sandwich_order.other_sandwich %>
+			<%- else -%>
+				A <% @sandwich_order.sandwich_type %> sandwich
+			<%- end -%>
+		</p>
+		<p>
+			As a great man once said: "<%= @quote %>"
+		</p>
+		<p>
+			So open the fridge, scour the local forest and get fired up to create a delicious sandwich.
+		</p>
+		<p>
+			Allez cuizine!
+			<br />
+			- Your Sandwich Crowdsourcers
+		</p>
+  </body>
+</html>

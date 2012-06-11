@@ -1,0 +1,22 @@
+Crowdsource Your Sammich!
+------------------------------
+
+Hi <%= @sandwich_order.sandwich_maker %>,
+
+You have been selected from a deep field of candidates to make a sandwich for <%= @sandwich_order.ordering_person %>.
+
+<%= @sandiwch_order.ordering_person.split[0].capitalize %> would like:
+
+<%- if @sandwich_order.sandwich_type == "Other" -%>
+	The fancy sandwich found here: <%= @sandwich_order.other_sandwich %>
+<%- else -%>
+	A <% @sandwich_order.sandwich_type %> sandwich
+<%- end -%>
+
+As a great man once said: "<%= @quote %>"
+
+So open the fridge, scour the local forest and get fired up to create a delicious sandwich.
+
+Allez cuizine!
+
+- Your Sandwich Crowdsourcers
