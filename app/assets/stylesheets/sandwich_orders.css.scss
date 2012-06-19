@@ -1,3 +1,37 @@
 // Place all the styles related to the SandwichOrders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sand-container {
+	overflow:hidden;
+}
+
+#recent {
+	float:left;
+	width:570px;
+	margin-bottom:15px;
+	
+	table {
+		margin:0;
+		margin-bottom:10px;
+	}
+}
+
+#count-list {
+	float:right;
+	width:570px;
+	text-align:center;
+}
+
+table#count-table {
+	margin-left:100px;
+	margin-right:100px;
+}
+
+.clear {
+	clear: both;
+}
+
+td {
+	vertical-align:top;
+}
