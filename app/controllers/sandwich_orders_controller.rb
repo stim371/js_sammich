@@ -2,12 +2,15 @@ class SandwichOrdersController < ApplicationController
   # GET /sandwich_orders
   # GET /sandwich_orders.json
   def index
-    @sandwich_orders = SandwichOrder.all
-
+    @sandwich_orders = SandwichOrder.all.reverse
+    @most_popular = SandwichOrder.select(:sandwich_type).group(:sandwich_type).count.sort_by {|flavor, count| count }.reverse
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sandwich_orders }
     end
+  end
+  
+  def success
   end
 
   # GET /sandwich_orders/1
@@ -44,8 +47,9 @@ class SandwichOrdersController < ApplicationController
 
     respond_to do |format|
       if @sandwich_order.save
-        SandwichOrderMailer.order_email(@sandwich_order).deliver
-        format.html { redirect_to root_url, notice: 'Sandwich order was successfully created.' }
+        SandwichOrderMailer.sandwich_order_email(@sandwich_order).deliver
+        #TODO: switch the redirect to a thank-you page
+        format.html { redirect_to success_url }
         format.json { render json: @sandwich_order, status: :created, location: @sandwich_order }
       else
         format.html { render action: "new" }
