@@ -1,0 +1,16 @@
+<table class="table table-striped span4" id="count-table">
+	<thead>
+		<tr>
+			<th><%= model_class.human_attribute_name(:sandwich_type) %></th>
+			<th>Count</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @most_popular.each do |flavor,count| %>
+		<tr>
+			<td><%= flavor %></td>
+			<td><%= count %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
