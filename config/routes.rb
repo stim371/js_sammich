@@ -2,6 +2,8 @@ Joelsammich::Application.routes.draw do
   resources :sandwich_orders
   
   root :to => 'sandwich_orders#index'
+  
+  match 'success' => "sandwich_orders#success", :as => "success"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
