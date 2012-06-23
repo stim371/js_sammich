@@ -1,0 +1,6 @@
+de:
+  helpers:
+    links:
+      new: "Neue Bestellung"
+      destroy: "Zerstoeren"
+      edit: "Editieren"
