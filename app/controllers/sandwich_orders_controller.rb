@@ -2,7 +2,9 @@ class SandwichOrdersController < ApplicationController
   # GET /sandwich_orders
   # GET /sandwich_orders.json
   def index
-    @sandwich_orders = SandwichOrder.all.reverse
+    @sandwich_orders = SandwichOrder.paginate(:page => params[:page],
+                                              :per_page => 10,
+                                              :order => 'created_at DESC')
     @most_popular = SandwichOrder.select(:sandwich_type).group(:sandwich_type).count.sort_by {|flavor, count| count }.reverse
     respond_to do |format|
       format.html # index.html.erb

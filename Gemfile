@@ -8,6 +8,7 @@ gem 'nokogiri'
 gem 'twitter-bootstrap-rails'
 gem 'mail', '~> 2.3'
 gem 'httparty'
+gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
