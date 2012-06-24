@@ -18,7 +18,7 @@
 			<%- if @sandwich_order.sandwich_type == "Other" -%>
 				The fancy sandwich found here: <%= @sandwich_order.other_sandwich %>
 			<%- else -%>
-				A <% @sandwich_order.sandwich_type %> sandwich
+				A <%= @sandwich_order.sandwich_type %> sandwich
 			<%- end -%>
 		</p>
 		<p>
