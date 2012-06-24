@@ -9,6 +9,8 @@ gem 'twitter-bootstrap-rails'
 gem 'mail', '~> 2.3'
 gem 'httparty'
 gem 'will_paginate', '~> 3.0'
+gem 'devise', '~> 2.0'
+gem 'heroku'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
