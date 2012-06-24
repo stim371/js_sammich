@@ -1,5 +1,9 @@
 require 'development_mail_interceptor'
-CREDENTIALS = YAML.load_file("#{Rails.root}/config/credentials.yml")["gmail"]
+CREDENTIALS = if Rails.env == 'production'
+    { "username" => ENV['EMAIL_USER'], "password" => ENV['EMAIL_PASS'] }
+  else
+    YAML.load_file("#{Rails.root}/config/credentials.yml")["gmail"]
+  end
 
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
