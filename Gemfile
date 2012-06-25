@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
-gem 'pg', :group => :production
+group :production do
+  gem 'pg'
+  gem 'newrelic_rpm'
+end
 
 gem 'nokogiri'
 gem 'twitter-bootstrap-rails'
