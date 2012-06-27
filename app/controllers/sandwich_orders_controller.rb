@@ -48,7 +48,7 @@ class SandwichOrdersController < ApplicationController
   # POST /sandwich_orders
   # POST /sandwich_orders.json
   def create
-    @sandwich_order = SandwichOrder.new(params[:sandwich_order].merge!(:user => current_user))
+    @sandwich_order = SandwichOrder.new(params[:sandwich_order].merge!(:user_id => current_user))
 
     respond_to do |format|
       if @sandwich_order.save

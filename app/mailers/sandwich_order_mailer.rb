@@ -1,5 +1,5 @@
 class SandwichOrderMailer < ActionMailer::Base
-  default from: "contact@uncoil.me"
+  default from: CREDENTIALS["username"]
   
   def sandwich_order_email(order)
     @sandwich_order = order
