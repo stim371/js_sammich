@@ -1,11 +1,14 @@
 class SandwichOrdersController < ApplicationController
+  before_filter :authenticate_user! #, :only => [:index, :show, :success, :edit, :new]
+  
   # GET /sandwich_orders
   # GET /sandwich_orders.json
   def index
     @sandwich_orders = SandwichOrder.paginate(:page => params[:page],
                                               :per_page => 10,
+                                              :conditions => ['user_id = ?', current_user], 
                                               :order => 'created_at DESC')
-    @most_popular = SandwichOrder.select(:sandwich_type).group(:sandwich_type).count.sort_by {|flavor, count| count }.reverse
+    @most_popular = SandwichOrder.select(:sandwich_type).where("user_id = ?", current_user).group(:sandwich_type).count.sort_by {|flavor, count| count }.reverse
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sandwich_orders }
@@ -45,7 +48,7 @@ class SandwichOrdersController < ApplicationController
   # POST /sandwich_orders
   # POST /sandwich_orders.json
   def create
-    @sandwich_order = SandwichOrder.new(params[:sandwich_order])
+    @sandwich_order = SandwichOrder.new(params[:sandwich_order].merge!(:user => current_user))
 
     respond_to do |format|
       if @sandwich_order.save

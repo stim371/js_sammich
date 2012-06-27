@@ -1,7 +1,7 @@
 class SandwichOrder < ActiveRecord::Base
   belongs_to :user
   
-  attr_accessible :ordering_person, :sandwich_type, :sandwich_maker, :other_sandwich, :user
+  attr_accessible :ordering_person, :sandwich_type, :sandwich_maker, :other_sandwich, :user_id
   SANDWICH_TYPES = ["Meat", "Veggie", "Vegan", "Other"]
   
   validates :ordering_person, :presence => true
