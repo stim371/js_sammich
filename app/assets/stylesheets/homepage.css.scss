@@ -1,0 +1,20 @@
+.homepage {
+	h1 {
+		text-align:center;
+	}
+	p, ol {
+		font-size: 150%;
+		color:gray;
+	}
+	ol {
+		margin-left: 50px;
+		
+		li {
+			margin-top: 15px;
+		}
+	}
+}
+img.floatright {
+	float:right;
+	margin: 10px;
+}
