@@ -1,18 +1,18 @@
 require 'development_mail_interceptor'
 CREDENTIALS = if Rails.env == 'production'
-    { "username" => ENV['EMAIL_USER'], "password" => ENV['EMAIL_PASS'] }
+    { "username" => ENV['SENDGRID_USERNAME'], "password" => ENV['SENDGRID_PASSWORD'] }
   else
     YAML.load_file("#{Rails.root}/config/credentials.yml")["gmail"]
   end
 
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
+  :address              => "smtp.sendgrid.net",
   :port                 => 587,
-  :domain               => "gmail.com",
+  :authentication       => :plain,
   :user_name            => CREDENTIALS["username"],
   :password             => CREDENTIALS["password"],
-  :authentication       => "plain",
-  :enable_starttls_auto => true
+  :domain               => "heroku.com"
 }
+ActionMailer::Base.delivery_method = :smtp
 
 ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
